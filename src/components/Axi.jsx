@@ -4,10 +4,15 @@ import axios from "axios";
 function Axi() {
 	const [students, setStudents] = useState([]);
 	useEffect(() => {
-		axios.get("https://jsonplaceholder.typicode.com/users").then((users) => {
-			setStudents(users.data);
-			console.log(users.data);
-		});
+		axios
+			.get("https://jsonplaceholder.typicode.com/users")
+			.then((users) => {
+				setStudents(users.data);
+				console.log(users.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}, []);
 
 	return (
